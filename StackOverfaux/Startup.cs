@@ -51,11 +51,13 @@ namespace StackOverfaux
             // This is new
             app.UseIdentity();
 
+            app.UseStaticFiles();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Account}/{action=Index}/{id?}"); 
+                    template: "{controller=Home}/{action=Index}/{id?}"); 
             });
             app.Run(async (context) =>
             {
