@@ -9,7 +9,7 @@
 @model RegisterViewModel
 
 <hr />
-<h2 class="text-center">Create your Stack Overflow account. It's free and only takes a minute.</h2>
+<h2 class="text-center">Create your Stack Overfaux account. It's free and only takes a minute, and also is definitely real.</h2>
 <div class="form-container">
     <div class="register-form">
         @using (Html.BeginForm("Register", "Account", FormMethod.Post))
@@ -28,7 +28,7 @@
                 @Html.PasswordFor(user => user.ConfirmPassword, new { @class = "form-control" })
             </div>
             <button type="submit" value="Register">Sign up</button>
-            <p class="text-center">By registering, you agree to the privacy policy and terms of service.</p>
+            <p class="text-center">By registering, you agree to the <a href="https://stackexchange.com/legal/privacy-policy">privacy policy</a> and <a href="https://stackexchange.com/legal/terms-of-service">terms of service.</a></p>
         }
     </div>
 </div>
