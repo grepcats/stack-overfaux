@@ -8,9 +8,9 @@ namespace StackOverfaux.ViewModels
 {
     public class RegisterViewModel
     {
-        [Required]
-        [Display(Name = "Display Name")]
-        public string Name { get; set; }
+        //[Required]
+        //[Display(Name = "Display Name")]
+        //public string Name { get; set; }
 
         [Required]
         [EmailAddress]
