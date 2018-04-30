@@ -17,15 +17,18 @@ textarea {
     max-width: 280px;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
+.register-form {
+    border: 1px solid #E4E6E9;
+    padding: 30px;
+    display: inline-block;
+    margin-top: 40px;
+    max-width: 350px;
 }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
+.form-container {
+    display: flex;
+    
+    justify-content: center;
 }
 
 /* Hide/rearrange for smaller screens */
