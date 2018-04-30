@@ -15,6 +15,8 @@ namespace StackOverfaux.Models
         public string TextBody { get; set; }
         public bool AcceptedAnswer { get; set; }
         public int Votes { get; set; }
+        [ForeignKey("Question")]
+        public int QuestionId { get; set; }
         public DateTime Date { get; set; }
         public virtual ApplicationUser User { get; set; }
         public virtual Question Question { get; set; }

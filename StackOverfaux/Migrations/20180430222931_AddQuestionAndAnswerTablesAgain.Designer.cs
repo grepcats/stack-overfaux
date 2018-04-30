@@ -8,9 +8,10 @@ using StackOverfaux.Models;
 namespace StackOverfaux.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180430222931_AddQuestionAndAnswerTablesAgain")]
+    partial class AddQuestionAndAnswerTablesAgain
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");
@@ -131,7 +132,7 @@ namespace StackOverfaux.Migrations
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<int>("QuestionId");
+                    b.Property<int?>("QuestionId");
 
                     b.Property<string>("TextBody");
 
@@ -261,8 +262,7 @@ namespace StackOverfaux.Migrations
                 {
                     b.HasOne("StackOverfaux.Models.Question", "Question")
                         .WithMany("Answers")
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("QuestionId");
 
                     b.HasOne("StackOverfaux.Models.ApplicationUser", "User")
                         .WithMany()

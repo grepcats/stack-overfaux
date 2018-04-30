@@ -9,6 +9,9 @@ namespace StackOverfaux.Models
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Answer> Answers { get; set; }
+
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
 

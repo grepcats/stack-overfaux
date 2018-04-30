@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Ask Question";
+}
+
+@model StackOverfaux.Models.Question
+
+<body>
+
+    <form asp-action="Create" id="create">
+        <div class="create-form">
+            <h4>Ask your Question</h4>
+            <hr />
+            <div class="form-group">
+                <label asp-for="Title" class="col-md-2 "></label>
+                <div class="col-md-10">
+                    <input asp-for="Title" class="form-control" />
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="BodyText" class="col-md-2 "></label>
+                <div class="col-md-10">
+                    <textarea rows="4" cols="50" asp-for="BodyText" form="create">Enter text here...</textarea>
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-info" />
+            </div>
+        </div>
+    </form>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</body>
