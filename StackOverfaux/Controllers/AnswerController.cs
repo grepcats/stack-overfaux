@@ -39,8 +39,8 @@ namespace StackOverfaux.Controllers
 
             _context.Answers.Add(answer);
             await _context.SaveChangesAsync();
-            //return RedirectToAction("Details", "Question", new { id = answer.QuestionId });
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Details", "Question", new { id = answer.QuestionId });
+            //return RedirectToAction("Index", "Home");
         }
     }
 }
