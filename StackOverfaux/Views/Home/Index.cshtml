@@ -24,6 +24,15 @@
 
                 <button value="UpVote" class="btn btn-default">Arorw pointing up</button>
             }
+            @using (Html.BeginForm("DownVote", "Home", FormMethod.Post))
+            {
+                @Html.HiddenFor(thisQuestion => question.QuestionId)
+                @Html.HiddenFor(thisQuestion => question.Title)
+                @Html.HiddenFor(thisQuestion => question.BodyText)
+                @Html.HiddenFor(thisQuestion => question.Votes)
+
+                <button value="DownVote" class="btn btn-default">Arorw pointing dwon</button>
+            }
             <p>@question.Votes</p>
 
         </li>

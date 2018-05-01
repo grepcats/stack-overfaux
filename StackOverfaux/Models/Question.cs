@@ -25,6 +25,10 @@ namespace StackOverfaux.Models
             {
                 Votes += 1;
             }
+            else if(direction == "down")
+            {
+                Votes -= 1;
+            }
             else {
                 Console.WriteLine("Hello");
 

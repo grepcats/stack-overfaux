@@ -40,5 +40,14 @@ namespace StackOverfaux.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> DownVote(Question question)
+        {
+            question.Vote("down");
+            _context.Entry(question).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
     }
 }
