@@ -19,5 +19,17 @@ namespace StackOverfaux.Models
         public virtual List<Answer> Answers { get; set; }
         public virtual ApplicationUser User { get; set; }
 
+        public void Vote(string direction)
+        {
+            if (direction == "up")
+            {
+                Votes += 1;
+            }
+            else {
+                Console.WriteLine("Hello");
+
+            }
+            Console.WriteLine("no");
+        }
     }
 }

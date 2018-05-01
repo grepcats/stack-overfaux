@@ -15,6 +15,17 @@
             <p>@question.Date</p>
             <p>@question.BodyText</p>
             <p>@question.User.UserName</p>
-        </li>        
+            @using (Html.BeginForm("UpVote", "Home", FormMethod.Post))
+            {
+                @Html.HiddenFor(thisQuestion => question.QuestionId)
+                @Html.HiddenFor(thisQuestion => question.Title)
+                @Html.HiddenFor(thisQuestion => question.BodyText)
+                @Html.HiddenFor(thisQuestion => question.Votes)
+
+                <button value="UpVote" class="btn btn-default">Arorw pointing up</button>
+            }
+            <p>@question.Votes</p>
+
+        </li>
     }
 </ul>

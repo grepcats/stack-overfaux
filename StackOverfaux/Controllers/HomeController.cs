@@ -21,7 +21,6 @@ namespace StackOverfaux.Controllers
         public IActionResult Index()
         {
             List<Question> allQuestions = _context.Questions.Include(questions => questions.User).ToList();
-            //List<Question> allQuestions = _context.Questions.ToList();
 
             return View(allQuestions);
         }
@@ -31,6 +30,15 @@ namespace StackOverfaux.Controllers
         public IActionResult Error()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpVote(Question question)
+        {
+            question.Vote("up");
+            _context.Entry(question).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
     }
 }
