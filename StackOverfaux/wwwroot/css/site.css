@@ -35,6 +35,12 @@ textarea {
     margin-top: 10px;
 }
 
+.time {
+    color: gray;
+    font-style: italic;
+
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */

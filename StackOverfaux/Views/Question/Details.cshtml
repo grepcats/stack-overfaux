@@ -17,10 +17,15 @@
 
 @using (Html.BeginForm("Create", "Answer", FormMethod.Post))
 {
-
     @Html.HiddenFor(model => model.QuestionId)
     @Html.LabelFor(model => model.TextBody)
     @Html.TextBoxFor(model => model.TextBody)
-
     <input type="submit" value="Create" class="btn btn-default" />
 }
+
+@foreach(Answer answer in ViewBag.Answers)
+{
+    <p>@answer.TextBody <span class="time">Posted by @answer.User.UserName at @answer.Date</span></p>
+
+}
+

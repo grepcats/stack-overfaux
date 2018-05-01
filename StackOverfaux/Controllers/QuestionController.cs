@@ -35,10 +35,10 @@ namespace StackOverfaux.Controllers
         public IActionResult Details(int id)
         {
             var question = _context.Questions.Include(questions => questions.User).SingleOrDefault(q => q.QuestionId == id);
-            QuestionViewModel model = new QuestionViewModel();
             Answer answer = new Answer();
             answer.Question = question;
             answer.QuestionId = id;
+            ViewBag.Answers = _context.Answers.Where(a => a.QuestionId == id);
             return View(answer);
         }
 
