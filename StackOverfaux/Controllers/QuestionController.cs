@@ -7,6 +7,8 @@ using StackOverfaux.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -31,7 +33,7 @@ namespace StackOverfaux.Controllers
 
         public IActionResult Details(int id)
         {
-            var question = _context.Questions.SingleOrDefault(q => q.QuestionId == id);
+            var question = _context.Questions.Include(questions => questions.User).SingleOrDefault(q => q.QuestionId == id);
             return View(question);
         }
 

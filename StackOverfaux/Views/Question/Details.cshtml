@@ -1,5 +1,15 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿
 @{
+    ViewData["Title"] = "Question";
 }
+
+
+
+@model StackOverfaux.Models.Question
+
+
+<h4>@Model.Title</h4>
+<p>@Model.Date</p>
+<p>@Model.BodyText</p>
+<p>@Model.User.UserName</p>
+<p>@Model.Votes</p>
