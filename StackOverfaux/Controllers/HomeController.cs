@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using StackOverfaux.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace StackOverfaux.Controllers
 {
@@ -18,7 +20,9 @@ namespace StackOverfaux.Controllers
 
         public IActionResult Index()
         {
-            List<Question> allQuestions = _context.Questions.ToList();
+            List<Question> allQuestions = _context.Questions.Include(questions => questions.User).ToList();
+            //List<Question> allQuestions = _context.Questions.ToList();
+
             return View(allQuestions);
         }
 

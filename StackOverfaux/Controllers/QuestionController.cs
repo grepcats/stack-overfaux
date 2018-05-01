@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using StackOverfaux.Models;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,13 +15,14 @@ namespace StackOverfaux.Controllers
     public class QuestionController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public QuestionController(ApplicationDbContext context)
+        public QuestionController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
-        // GET: /<controller>/
         public IActionResult Index()
         {
             List<Question> allQuestions = _context.Questions.ToList();
@@ -40,6 +44,10 @@ namespace StackOverfaux.Controllers
         public async Task<IActionResult> Create(Question question)
         {
             question.Date = DateTime.Now;
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(userId);
+            question.User = currentUser;
+
             _context.Add(question);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index", "Home");
